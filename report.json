@@ -1,22 +1,22 @@
 {
   "summary": {
-    "total_ops": 3589,
-    "native_mps": 902,
+    "total_ops": 3590,
+    "native_mps": 906,
     "core_total": 193,
     "A_core_gap": 2,
-    "B_kernel_gap": 150,
+    "B_kernel_gap": 148,
     "device_specific_excluded": 99,
     "B_decomp_fail": 34,
     "C_dtype_partial": 69,
-    "D_backward_gap": 3,
+    "D_backward_gap": 2,
     "D_backward_unclassified": 0,
     "backward_outcomes": {
-      "ok": 450,
+      "ok": 451,
       "fwd_gap": 26,
       "sample_unsupported": 4,
-      "backward_gap": 3,
       "float64_unsupported": 4,
-      "nondifferentiable": 1
+      "nondifferentiable": 1,
+      "backward_gap": 2
     },
     "opinfo_forward_tested": 623
   },
@@ -88,8 +88,6 @@
     "aten::_to_sparse_csr",
     "aten::_transform_bias_rescale_qkv",
     "aten::_transformer_encoder_layer_fwd",
-    "aten::_upsample_bicubic2d_aa_backward.grad_input",
-    "aten::_upsample_bilinear2d_aa_backward.grad_input",
     "aten::_upsample_lanczos2d_aa.out",
     "aten::_upsample_lanczos2d_aa_backward.grad_input",
     "aten::_validate_compressed_sparse_indices",
@@ -284,7 +282,6 @@
     "uniform"
   ],
   "D_backward_gap": [
-    "_upsample_bilinear2d_aa",
     "special.i1",
     "special.i1e"
   ],
@@ -969,24 +966,6 @@
     },
     {
       "op": "aten::_transformer_encoder_layer_fwd",
-      "cat": "B",
-      "ns": "aten",
-      "core": false,
-      "cpu": true,
-      "cuda": false,
-      "note": "has a CPU op, no MPS registration"
-    },
-    {
-      "op": "aten::_upsample_bicubic2d_aa_backward.grad_input",
-      "cat": "B",
-      "ns": "aten",
-      "core": false,
-      "cpu": true,
-      "cuda": false,
-      "note": "has a CPU op, no MPS registration"
-    },
-    {
-      "op": "aten::_upsample_bilinear2d_aa_backward.grad_input",
       "cat": "B",
       "ns": "aten",
       "core": false,
@@ -2685,15 +2664,6 @@
       "cpu": null,
       "cuda": null,
       "note": "fails on dtypes: int64, int32, bool"
-    },
-    {
-      "op": "_upsample_bilinear2d_aa",
-      "cat": "D",
-      "ns": "aten",
-      "core": false,
-      "cpu": null,
-      "cuda": null,
-      "note": "forward runs on MPS, backward missing"
     },
     {
       "op": "special.i1",
@@ -10056,7 +10026,7 @@
     "nn.functional.unfold": "ok",
     "nn.functional.interpolate": "sample_unsupported",
     "nn.functional.upsample_bilinear": "ok",
-    "_upsample_bilinear2d_aa": "backward_gap",
+    "_upsample_bilinear2d_aa": "ok",
     "nn.functional.soft_margin_loss": "ok",
     "nn.functional.upsample_nearest": "ok",
     "nn.functional.margin_ranking_loss": "ok",
@@ -10388,8 +10358,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260706",
-    "git": "5d064d406fb119ad5e8c560077f378efd442648b",
-    "date": "2026-07-07 03:38 UTC"
+    "torch": "2.14.0.dev20260707",
+    "git": "91ee0e8a8ae2ab8df31662af070af6ae572ce0df",
+    "date": "2026-07-07 15:01 UTC"
   }
 }

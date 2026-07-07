@@ -1,2 +1,2 @@
 date,torch,git,total_ops,native_mps,core_total,A_core_gap,B_kernel_gap,device_specific_excluded,B_decomp_fail,C_dtype_partial,D_backward_gap,open_gaps
-2026-07-07,2.14.0.dev20260706,5d064d406fb,3589,902,193,2,150,99,34,69,3,258
+2026-07-07,2.14.0.dev20260707,91ee0e8a8ae,3590,906,193,2,148,99,34,69,2,255
