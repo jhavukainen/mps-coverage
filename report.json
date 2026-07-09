@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 115,
     "B_decomp_fail": 35,
-    "C_dtype_partial": 102,
+    "C_dtype_partial": 104,
     "D_backward_gap": 21,
     "total_ops": 3590,
-    "native_mps": 906,
+    "native_mps": 907,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 275,
+    "open_gaps": 277,
     "device_specific_excluded": 99,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1288,6 +1288,13 @@
       "variant_only": false
     },
     {
+      "op": "cross",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "floor",
       "cat": "C",
       "subsystem": "dense",
@@ -1355,6 +1362,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.cross",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -3439,7 +3453,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "cumsum": {
@@ -9017,7 +9033,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.det": {
@@ -10649,8 +10667,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260708",
-    "git": "566bb9719b0a67fe47af72cb69345dd809b5caec",
-    "date": "2026-07-08 15:02 UTC"
+    "torch": "2.14.0.dev20260709",
+    "git": "a45851c5e8160958ee85cc9066fa3fe24f5ea370",
+    "date": "2026-07-09 15:02 UTC"
   }
 }
