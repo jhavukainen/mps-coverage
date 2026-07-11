@@ -1,21 +1,21 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 115,
-    "B_decomp_fail": 35,
-    "C_dtype_partial": 104,
+    "B_missing_op": 112,
+    "B_decomp_fail": 34,
+    "C_dtype_partial": 103,
     "D_backward_gap": 21,
-    "total_ops": 3590,
-    "native_mps": 907,
+    "total_ops": 3588,
+    "native_mps": 910,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 277,
+    "open_gaps": 272,
     "device_specific_excluded": 99,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
     "xfail_untested_followup": 7,
     "backward_unclassified": 0,
-    "opinfo_forward_tested": 623,
+    "opinfo_forward_tested": 622,
     "denylist_stale": [],
     "xfail_map_empty": false
   },
@@ -85,20 +85,6 @@
     },
     {
       "op": "aten::_aminmax.dim",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::_compute_linear_combination",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::_compute_linear_combination.out",
       "cat": "B",
       "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
@@ -484,13 +470,6 @@
     },
     {
       "op": "aten::linalg_ldl_solve.out",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::linalg_matrix_exp",
       "cat": "B",
       "subsystem": "linalg-cpu-bound",
       "note": "has a CPU op, no MPS registration",
@@ -1054,13 +1033,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::logspace.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "matrix_exp",
-      "cat": "B'",
-      "subsystem": "linalg-cpu-bound",
-      "note": "composite; decomposition needs aten::linalg_matrix_exp (no MPS registration)",
       "variant_only": false
     },
     {
@@ -1870,13 +1842,6 @@
     },
     {
       "op": "pca_lowrank",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "qr",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -4178,19 +4143,14 @@
       "missing": []
     },
     "matrix_exp": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::linalg_matrix_exp"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "matmul": {
       "passed": [
@@ -5783,15 +5743,6 @@
         "torch.complex64"
       ],
       "notimpl": [],
-      "missing": []
-    },
-    "qr": {
-      "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
-        "torch.complex64"
-      ],
       "missing": []
     },
     "rad2deg": {
@@ -10279,7 +10230,7 @@
     "masked_fill": "ok",
     "masked_scatter": "ok",
     "masked_select": "ok",
-    "matrix_exp": "fwd_gap",
+    "matrix_exp": "ok",
     "matmul": "ok",
     "max": "ok",
     "median": "ok",
@@ -10399,7 +10350,6 @@
     "permute_copy": "ok",
     "pow": "ok",
     "float_power": "float64_unsupported",
-    "qr": "ok",
     "rad2deg": "ok",
     "real": "ok",
     "roll": "ok",
@@ -10667,8 +10617,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260710",
-    "git": "0ce05af6274d975672dd30447bf00010317288ef",
-    "date": "2026-07-10 15:02 UTC"
+    "torch": "2.14.0.dev20260711",
+    "git": "b2b98e00da5a6d453785485cd24981259e7d70c1",
+    "date": "2026-07-11 15:02 UTC"
   }
 }
