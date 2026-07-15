@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 112,
-    "B_decomp_fail": 34,
-    "C_dtype_partial": 103,
+    "B_missing_op": 111,
+    "B_decomp_fail": 33,
+    "C_dtype_partial": 102,
     "D_backward_gap": 21,
-    "total_ops": 3588,
-    "native_mps": 910,
+    "total_ops": 3590,
+    "native_mps": 912,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 272,
+    "open_gaps": 269,
     "device_specific_excluded": 99,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -477,13 +477,6 @@
     },
     {
       "op": "aten::linalg_matrix_sqrth",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::linalg_polar.out",
       "cat": "B",
       "subsystem": "linalg-cpu-bound",
       "note": "has a CPU op, no MPS registration",
@@ -1022,13 +1015,6 @@
       "variant_only": false
     },
     {
-      "op": "linalg.polar",
-      "cat": "B'",
-      "subsystem": "linalg-cpu-bound",
-      "note": "composite; decomposition needs aten::linalg_polar.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "logspace",
       "cat": "B'",
       "subsystem": "dense",
@@ -1555,13 +1541,6 @@
     },
     {
       "op": "mvlgamma",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "nan_to_num",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -6255,11 +6234,10 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool"
-      ],
-      "notimpl": [
+        "torch.bool",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "reciprocal": {
@@ -9195,16 +9173,12 @@
       "missing": []
     },
     "linalg.polar": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
-        "torch.float16",
-        "torch.bfloat16",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::linalg_polar.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "linalg.slogdet": {
       "passed": [
@@ -10617,8 +10591,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260713",
-    "git": "9bfc832727066b194c86de4e4b09947a60e4c659",
-    "date": "2026-07-14 15:02 UTC"
+    "torch": "2.14.0.dev20260715",
+    "git": "bd4737c8f590cabb31dd9dc12f3ebef5e7bbf7a8",
+    "date": "2026-07-15 15:02 UTC"
   }
 }
