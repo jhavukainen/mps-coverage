@@ -1,21 +1,21 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 111,
+    "B_missing_op": 109,
     "B_decomp_fail": 33,
-    "C_dtype_partial": 102,
+    "C_dtype_partial": 103,
     "D_backward_gap": 21,
-    "total_ops": 3590,
-    "native_mps": 912,
+    "total_ops": 3591,
+    "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 269,
-    "device_specific_excluded": 99,
+    "open_gaps": 268,
+    "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
-    "xfail_untested_followup": 7,
+    "xfail_untested_followup": 6,
     "backward_unclassified": 0,
-    "opinfo_forward_tested": 622,
+    "opinfo_forward_tested": 623,
     "denylist_stale": [],
     "xfail_map_empty": false
   },
@@ -402,20 +402,6 @@
       "op": "aten::frexp.Tensor_out",
       "cat": "B",
       "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::geqrf",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::geqrf.a",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -959,13 +945,6 @@
       "variant_only": false
     },
     {
-      "op": "geqrf",
-      "cat": "B'",
-      "subsystem": "linalg-cpu-bound",
-      "note": "composite; decomposition needs aten::geqrf (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "hash_tensor",
       "cat": "B'",
       "subsystem": "dense",
@@ -1103,6 +1082,13 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs a missing MPS primitive (no MPS registration)",
+      "variant_only": false
+    },
+    {
+      "op": "ormqr",
+      "cat": "B'",
+      "subsystem": "linalg-cpu-bound",
+      "note": "composite; decomposition needs aten::ormqr (no MPS registration)",
       "variant_only": false
     },
     {
@@ -1264,6 +1250,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: float32, float16, bfloat16, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "geqrf",
+      "cat": "C",
+      "subsystem": "linalg-cpu-bound",
+      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -2183,6 +2176,10 @@
       "kind": "device_specific"
     },
     {
+      "op": "c10d::gather_into_tensor_",
+      "kind": "device_specific"
+    },
+    {
       "op": "c10d::monitored_barrier_",
       "kind": "device_specific"
     },
@@ -2580,10 +2577,6 @@
     },
     {
       "op": "linalg.ldl_solve",
-      "kind": "xfail_untested_followup"
-    },
-    {
-      "op": "ormqr",
       "kind": "xfail_untested_followup"
     },
     {
@@ -3851,14 +3844,13 @@
       "missing": []
     },
     "geqrf": {
-      "passed": [],
+      "passed": [
+        "torch.float32"
+      ],
       "notimpl": [
-        "torch.float32",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::geqrf"
-      ]
+      "missing": []
     },
     "gt": {
       "passed": [
@@ -5684,6 +5676,15 @@
       ],
       "notimpl": [],
       "missing": []
+    },
+    "ormqr": {
+      "passed": [],
+      "notimpl": [
+        "torch.float32"
+      ],
+      "missing": [
+        "aten::ormqr"
+      ]
     },
     "permute": {
       "passed": [
@@ -10591,8 +10592,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260718",
-    "git": "9c383c96662499ca063185241dfc3c276c61b94d",
-    "date": "2026-07-18 15:02 UTC"
+    "torch": "2.14.0.dev20260719",
+    "git": "194fcb011f035ee09da225a40f5da5df0930d27c",
+    "date": "2026-07-19 15:02 UTC"
   }
 }
