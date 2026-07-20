@@ -5,12 +5,12 @@
     "B_decomp_fail": 33,
     "C_dtype_partial": 103,
     "D_backward_gap": 21,
-    "total_ops": 3591,
+    "total_ops": 3590,
     "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 23,
     "open_gaps": 268,
-    "device_specific_excluded": 100,
+    "device_specific_excluded": 99,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
     "xfail_untested_followup": 6,
@@ -2173,10 +2173,6 @@
     },
     {
       "op": "c10d::gather_",
-      "kind": "device_specific"
-    },
-    {
-      "op": "c10d::gather_into_tensor_",
       "kind": "device_specific"
     },
     {
@@ -10592,8 +10588,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260719",
-    "git": "194fcb011f035ee09da225a40f5da5df0930d27c",
-    "date": "2026-07-19 15:02 UTC"
+    "torch": "2.14.0.dev20260720",
+    "git": "3f8a4a186220e6772bd5f91027459808560d8539",
+    "date": "2026-07-20 15:02 UTC"
   }
 }
