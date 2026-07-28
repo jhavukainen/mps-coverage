@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 109,
     "B_decomp_fail": 33,
-    "C_dtype_partial": 103,
+    "C_dtype_partial": 105,
     "D_backward_gap": 21,
     "total_ops": 3591,
     "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 268,
+    "open_gaps": 270,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1894,6 +1894,20 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
+      "op": "unique",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "unique_consecutive",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -6762,10 +6776,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
+        "torch.bool"
+      ],
+      "notimpl": [
         "torch.complex64"
       ],
-      "notimpl": [],
       "missing": []
     },
     "unique_consecutive": {
@@ -6775,10 +6790,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
+        "torch.bool"
+      ],
+      "notimpl": [
         "torch.complex64"
       ],
-      "notimpl": [],
       "missing": []
     },
     "put": {
@@ -10592,8 +10608,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260727",
-    "git": "ee6a51f8364b126e4e3a3d4459f8fbb35d6a5d3a",
-    "date": "2026-07-27 15:02 UTC"
+    "torch": "2.14.0.dev20260728",
+    "git": "84e88294a1f0d04290fcfe75fdad0d7b76553da9",
+    "date": "2026-07-28 15:02 UTC"
   }
 }
