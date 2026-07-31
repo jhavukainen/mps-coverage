@@ -1,7 +1,7 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 109,
+    "B_missing_op": 114,
     "B_decomp_fail": 33,
     "C_dtype_partial": 105,
     "D_backward_gap": 21,
@@ -9,7 +9,7 @@
     "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 23,
-    "open_gaps": 270,
+    "open_gaps": 275,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -248,6 +248,41 @@
       "op": "aten::_padded_dense_to_jagged_forward",
       "cat": "B",
       "subsystem": "nested",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_key_fold_in",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_key_fold_in.Tensor",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_key_split",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_normal_",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_uniform_",
+      "cat": "B",
+      "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -10608,8 +10643,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260730",
-    "git": "80ba33e220010b4ba3bf9540e6b940b961684d6b",
-    "date": "2026-07-30 15:02 UTC"
+    "torch": "2.14.0.dev20260731",
+    "git": "265f426bd110422285a0585dd8833707f091d0a9",
+    "date": "2026-07-31 15:02 UTC"
   }
 }
