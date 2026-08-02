@@ -5,7 +5,7 @@
     "B_decomp_fail": 33,
     "C_dtype_partial": 105,
     "D_backward_gap": 21,
-    "total_ops": 3591,
+    "total_ops": 3592,
     "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 23,
@@ -10643,8 +10643,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260801",
-    "git": "69231fe37ab3b5d45ad5c4e6e81203be66be42cf",
-    "date": "2026-08-01 15:02 UTC"
+    "torch": "2.14.0.dev20260802",
+    "git": "944416f66ed4dd9502c3ff18a94881857ae6bab3",
+    "date": "2026-08-02 15:02 UTC"
   }
 }
