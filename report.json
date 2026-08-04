@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 114,
     "B_decomp_fail": 33,
-    "C_dtype_partial": 105,
+    "C_dtype_partial": 106,
     "D_backward_gap": 21,
     "total_ops": 3592,
     "native_mps": 914,
     "core_total": 193,
-    "X_registered_xfail": 23,
-    "open_gaps": 275,
+    "X_registered_xfail": 21,
+    "open_gaps": 276,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1260,6 +1260,20 @@
       "variant_only": false
     },
     {
+      "op": "cholesky_inverse",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "cholesky_solve",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
       "op": "clamp",
       "cat": "C",
       "subsystem": "dense",
@@ -1341,13 +1355,6 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: float32, float16, bfloat16, bool, complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.cholesky",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -1960,13 +1967,6 @@
       "variant_only": false
     },
     {
-      "op": "cholesky_inverse",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
       "op": "cumsum",
       "cat": "X",
       "subsystem": "dense",
@@ -2066,13 +2066,6 @@
     },
     {
       "op": "var",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.cholesky_ex",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -3192,14 +3185,18 @@
       "passed": [
         "torch.float32"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.complex64"
+      ],
       "missing": []
     },
     "cholesky_solve": {
       "passed": [
         "torch.float32"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.complex64"
+      ],
       "missing": []
     },
     "chunk": {
@@ -9057,11 +9054,10 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16"
-      ],
-      "notimpl": [
+        "torch.bfloat16",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.cholesky_ex": {
@@ -10643,8 +10639,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260802",
-    "git": "944416f66ed4dd9502c3ff18a94881857ae6bab3",
-    "date": "2026-08-03 15:01 UTC"
+    "torch": "2.14.0.dev20260804",
+    "git": "0163eec5ea4f816c6f4d1684bda7a7b80201404a",
+    "date": "2026-08-04 15:02 UTC"
   }
 }
