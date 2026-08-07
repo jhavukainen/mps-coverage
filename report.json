@@ -10593,6 +10593,7 @@
     "linalg.norm": "ok",
     "linalg.matrix_norm": "ok",
     "linalg.qr": "ok",
+    "linalg.polar": "ok",
     "linalg.slogdet": "ok",
     "linalg.vander": "ok",
     "linalg.vector_norm": "ok",
@@ -10639,8 +10640,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260806",
-    "git": "6e62e4d8b3d38115a8be9735a1bf78060d38c31a",
-    "date": "2026-08-06 15:02 UTC"
+    "torch": "2.14.0.dev20260807",
+    "git": "b99937c121cccfa31e108d84ad3c6d4a0ddca00e",
+    "date": "2026-08-07 15:02 UTC"
   }
 }
