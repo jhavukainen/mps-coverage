@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 114,
     "B_decomp_fail": 33,
-    "C_dtype_partial": 106,
+    "C_dtype_partial": 127,
     "D_backward_gap": 21,
     "total_ops": 3592,
     "native_mps": 914,
     "core_total": 193,
-    "X_registered_xfail": 21,
-    "open_gaps": 276,
+    "X_registered_xfail": 20,
+    "open_gaps": 297,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1211,6 +1211,13 @@
       "variant_only": false
     },
     {
+      "op": "__rsub__",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "_batch_norm_with_update",
       "cat": "C",
       "subsystem": "dense",
@@ -1281,7 +1288,35 @@
       "variant_only": false
     },
     {
+      "op": "corrcoef",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "cov",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "cross",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "cumulative_trapezoid",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "dist",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
@@ -1306,6 +1341,13 @@
       "cat": "C",
       "subsystem": "linalg-cpu-bound",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "gradient",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -1561,6 +1603,20 @@
       "variant_only": false
     },
     {
+      "op": "masked.std",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "masked.var",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "max_pool2d_with_indices_backward",
       "cat": "C",
       "subsystem": "dense",
@@ -1600,6 +1656,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64",
+      "variant_only": false
+    },
+    {
+      "op": "neg",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -1739,7 +1802,7 @@
       "op": "nn.functional.hardtanh",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -1761,6 +1824,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: float32, float16, bfloat16, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.l1_loss",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -1788,7 +1858,7 @@
       "op": "nn.functional.margin_ranking_loss",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -1813,10 +1883,17 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.pairwise_distance",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.relu6",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -1841,6 +1918,20 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.soft_margin_loss",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.softmin",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.softplus",
       "cat": "C",
       "subsystem": "dense",
@@ -1855,10 +1946,38 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.tanhshrink",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.triplet_margin_loss",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.triplet_margin_with_distance_loss",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "pca_lowrank",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "positive",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -1883,6 +2002,13 @@
       "variant_only": false
     },
     {
+      "op": "rsub",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "scatter_reduce",
       "cat": "C",
       "subsystem": "dense",
@@ -1904,6 +2030,13 @@
       "variant_only": false
     },
     {
+      "op": "sub",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "svd_lowrank",
       "cat": "C",
       "subsystem": "dense",
@@ -1912,6 +2045,20 @@
     },
     {
       "op": "tensordot",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "trapezoid",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "trapz",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
@@ -2003,13 +2150,6 @@
     },
     {
       "op": "softmax",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd for float32 (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "nn.functional.softmin",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd for float32 (correctness/precision)",
@@ -2825,7 +2965,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "addmm": {
@@ -3287,7 +3429,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "conj": {
@@ -3386,7 +3530,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "cos": {
@@ -3424,7 +3570,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "cross": {
@@ -3926,7 +4074,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "isin": {
@@ -4457,7 +4607,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.cross_entropy": {
@@ -4971,7 +5123,9 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.upsample_nearest": {
@@ -4995,6 +5149,7 @@
         "torch.int32"
       ],
       "notimpl": [
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5432,7 +5587,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.threshold": {
@@ -5456,7 +5613,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.triplet_margin_with_distance_loss": {
@@ -5468,7 +5627,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nextafter": {
@@ -5569,6 +5730,7 @@
         "torch.int32"
       ],
       "notimpl": [
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5591,6 +5753,7 @@
         "torch.int32"
       ],
       "notimpl": [
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5697,7 +5860,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "dist": {
@@ -5707,7 +5872,9 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "outer": {
@@ -6066,7 +6233,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "rsub": {
@@ -6078,7 +6247,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "select": {
@@ -7111,7 +7282,8 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32"
+        "torch.int32",
+        "torch.bool"
       ],
       "notimpl": [],
       "missing": []
@@ -7693,7 +7865,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "trapezoid": {
@@ -7705,7 +7879,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "cumulative_trapezoid": {
@@ -7717,7 +7893,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "unsqueeze": {
@@ -8078,7 +8256,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "lgamma": {
@@ -8690,7 +8870,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.pixel_shuffle": {
@@ -10061,7 +10243,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "masked.std": {
@@ -10073,7 +10257,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "masked.softmax": {
@@ -10640,8 +10826,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260808",
-    "git": "4e05b334ccd5b85c30e7fc239e6b1cb9b0ff8c40",
-    "date": "2026-08-09 15:02 UTC"
+    "torch": "2.14.0.dev20260810",
+    "git": "2d8a7a26fb403de3a7d91748dafa24e7d1b8fa5a",
+    "date": "2026-08-10 15:02 UTC"
   }
 }
