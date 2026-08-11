@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 114,
     "B_decomp_fail": 33,
-    "C_dtype_partial": 127,
+    "C_dtype_partial": 146,
     "D_backward_gap": 21,
     "total_ops": 3592,
     "native_mps": 914,
     "core_total": 193,
     "X_registered_xfail": 20,
-    "open_gaps": 297,
+    "open_gaps": 316,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1323,6 +1323,132 @@
       "variant_only": false
     },
     {
+      "op": "fft.fft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.fft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.fftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.hfft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.hfft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.hfftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ifft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ifft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ifftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ihfft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ihfft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.ihfftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.irfft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.irfft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.irfftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.rfft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.rfft2",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
+      "op": "fft.rfftn",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16",
+      "variant_only": false
+    },
+    {
       "op": "floor",
       "cat": "C",
       "subsystem": "dense",
@@ -2027,6 +2153,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "stft",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -3910,7 +4043,11 @@
         "torch.float16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "istft": {
@@ -8974,7 +9111,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.fft2": {
@@ -8985,7 +9125,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.fftn": {
@@ -8996,7 +9139,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.hfft": {
@@ -9007,7 +9153,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.hfft2": {
@@ -9018,7 +9167,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.hfftn": {
@@ -9029,7 +9181,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.rfft": {
@@ -9039,7 +9194,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.rfft2": {
@@ -9049,7 +9207,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.rfftn": {
@@ -9059,7 +9220,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ifft": {
@@ -9070,7 +9234,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ifft2": {
@@ -9081,7 +9248,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ifftn": {
@@ -9092,7 +9262,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ihfft": {
@@ -9102,7 +9275,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ihfft2": {
@@ -9112,7 +9288,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.ihfftn": {
@@ -9122,7 +9301,10 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.irfft": {
@@ -9133,7 +9315,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.irfft2": {
@@ -9144,7 +9329,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.irfftn": {
@@ -9155,7 +9343,10 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "fft.fftshift": {
@@ -10826,8 +11017,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260810",
-    "git": "2d8a7a26fb403de3a7d91748dafa24e7d1b8fa5a",
-    "date": "2026-08-10 15:02 UTC"
+    "torch": "2.14.0.dev20260811",
+    "git": "50e2fa0ee83b69c86861f0c6835977e10dbb111b",
+    "date": "2026-08-11 15:02 UTC"
   }
 }
