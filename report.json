@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 114,
-    "B_decomp_fail": 33,
+    "B_missing_op": 110,
+    "B_decomp_fail": 30,
     "C_dtype_partial": 146,
     "D_backward_gap": 21,
-    "total_ops": 3592,
-    "native_mps": 914,
+    "total_ops": 3593,
+    "native_mps": 918,
     "core_total": 193,
     "X_registered_xfail": 20,
-    "open_gaps": 316,
+    "open_gaps": 309,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -511,13 +511,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::logspace.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::max.unary_out",
       "cat": "B",
       "subsystem": "dense",
@@ -584,13 +577,6 @@
       "op": "aten::ormqr.out",
       "cat": "B",
       "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::put_",
-      "cat": "B",
-      "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -812,20 +798,6 @@
       "variant_only": true
     },
     {
-      "op": "aten::take",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::take.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::var.correction_out",
       "cat": "B",
       "subsystem": "dense",
@@ -1029,13 +1001,6 @@
       "variant_only": false
     },
     {
-      "op": "logspace",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::logspace.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "mode",
       "cat": "B'",
       "subsystem": "dense",
@@ -1127,13 +1092,6 @@
       "variant_only": false
     },
     {
-      "op": "put",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::put_ (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "special.airy_ai",
       "cat": "B'",
       "subsystem": "dense",
@@ -1166,13 +1124,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::special_ndtri.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "take",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::take (no MPS registration)",
       "variant_only": false
     },
     {
@@ -4267,8 +4218,7 @@
       "missing": []
     },
     "logspace": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
@@ -4277,9 +4227,8 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::logspace.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "log": {
       "passed": [
@@ -7138,8 +7087,7 @@
       "missing": []
     },
     "put": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
@@ -7148,13 +7096,11 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::put_"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "take": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
@@ -7163,9 +7109,8 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::take"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "scatter": {
       "passed": [
@@ -10821,8 +10766,8 @@
     "__getitem__": "ok",
     "index_put": "ok",
     "sort": "ok",
-    "put": "fwd_gap",
-    "take": "fwd_gap",
+    "put": "ok",
+    "take": "ok",
     "scatter": "ok",
     "bfloat16": "ok",
     "double": "float64_unsupported",
@@ -11017,8 +10962,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.14.0.dev20260811",
-    "git": "50e2fa0ee83b69c86861f0c6835977e10dbb111b",
-    "date": "2026-08-11 15:02 UTC"
+    "torch": "2.15.0.dev20260812",
+    "git": "3eb0e5d0968d26971fdd6684ab5c9b605bfec4a6",
+    "date": "2026-08-12 15:02 UTC"
   }
 }
