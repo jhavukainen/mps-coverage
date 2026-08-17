@@ -11042,8 +11042,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260816",
-    "git": "855e6dad2958f7a0f1beed954dd0409efc21be80",
-    "date": "2026-08-16 15:02 UTC"
+    "torch": "2.15.0.dev20260817",
+    "git": "fa4d6022b9387727424f7da69233f97095a4b948",
+    "date": "2026-08-17 15:02 UTC"
   }
 }
