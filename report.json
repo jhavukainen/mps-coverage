@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 108,
     "B_decomp_fail": 30,
-    "C_dtype_partial": 155,
+    "C_dtype_partial": 157,
     "D_backward_gap": 21,
     "total_ops": 3593,
     "native_mps": 920,
     "core_total": 193,
     "X_registered_xfail": 20,
-    "open_gaps": 316,
+    "open_gaps": 318,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1722,6 +1722,13 @@
       "variant_only": false
     },
     {
+      "op": "mean",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "median",
       "cat": "C",
       "subsystem": "dense",
@@ -1733,6 +1740,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nanmean",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1928,7 +1942,7 @@
       "op": "nn.functional.l1_loss",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -2012,7 +2026,7 @@
       "op": "nn.functional.smooth_l1_loss",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64",
+      "note": "fails on dtypes: int64, int32",
       "variant_only": false
     },
     {
@@ -2068,7 +2082,7 @@
       "op": "pca_lowrank",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int64, int32, complex64",
       "variant_only": false
     },
     {
@@ -6803,6 +6817,8 @@
         "torch.float32"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
         "torch.complex64"
       ],
       "missing": []
@@ -8397,11 +8413,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int32",
         "torch.complex64"
       ],
       "notimpl": [
-        "torch.int64"
+        "torch.int64",
+        "torch.int32"
       ],
       "missing": []
     },
@@ -8410,11 +8426,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
         "torch.complex64"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
         "torch.bool"
       ],
       "missing": []
@@ -8821,7 +8837,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "nanmean": {
@@ -8830,7 +8850,11 @@
         "torch.float16",
         "torch.bfloat16"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "std": {
@@ -11042,8 +11066,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260817",
-    "git": "fa4d6022b9387727424f7da69233f97095a4b948",
-    "date": "2026-08-17 15:02 UTC"
+    "torch": "2.15.0.dev20260818",
+    "git": "e0474491d782a73b73cf132f732a8513b3c9f49d",
+    "date": "2026-08-18 15:02 UTC"
   }
 }
