@@ -4,12 +4,12 @@
     "B_missing_op": 108,
     "B_decomp_fail": 30,
     "C_dtype_partial": 157,
-    "D_backward_gap": 21,
+    "D_backward_gap": 19,
     "total_ops": 3593,
     "native_mps": 920,
     "core_total": 193,
     "X_registered_xfail": 20,
-    "open_gaps": 318,
+    "open_gaps": 316,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1131,20 +1131,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::_scaled_dot_product_flash_attention_for_cpu (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "special.i1",
-      "cat": "D",
-      "subsystem": "dense",
-      "note": "forward runs on MPS, backward missing",
-      "variant_only": false
-    },
-    {
-      "op": "special.i1e",
-      "cat": "D",
-      "subsystem": "dense",
-      "note": "forward runs on MPS, backward missing",
       "variant_only": false
     },
     {
@@ -11038,8 +11024,8 @@
     "linalg.tensorinv": "ok",
     "linalg.tensorsolve": "ok",
     "special.i0e": "ok",
-    "special.i1": "backward_gap",
-    "special.i1e": "backward_gap",
+    "special.i1": "ok",
+    "special.i1e": "ok",
     "special.ndtr": "ok",
     "special.polygamma": "ok",
     "special.xlog1py": "ok",
@@ -11047,6 +11033,14 @@
     "special.ndtri": "fwd_gap",
     "special.log_ndtr": "fwd_gap",
     "special.erfcx": "ok",
+    "special.bessel_j0": "ok",
+    "special.bessel_j1": "ok",
+    "special.bessel_y0": "ok",
+    "special.bessel_y1": "ok",
+    "special.modified_bessel_i0": "ok",
+    "special.modified_bessel_i1": "ok",
+    "special.modified_bessel_k0": "ok",
+    "special.modified_bessel_k1": "ok",
     "masked.sum": "ok",
     "masked.prod": "ok",
     "masked.cumsum": "ok",
@@ -11066,8 +11060,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260819",
-    "git": "f38bcb805f8cfa7ca79c81a21f71bfa6c9ac65b1",
-    "date": "2026-08-19 15:02 UTC"
+    "torch": "2.15.0.dev20260820",
+    "git": "a69ffdbc0fa11bf7dc90221fba0abe4b106fa214",
+    "date": "2026-08-20 15:02 UTC"
   }
 }
