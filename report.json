@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 108,
+    "B_missing_op": 109,
     "B_decomp_fail": 30,
     "C_dtype_partial": 157,
     "D_backward_gap": 19,
-    "total_ops": 3594,
+    "total_ops": 3597,
     "native_mps": 920,
     "core_total": 193,
     "X_registered_xfail": 20,
-    "open_gaps": 316,
+    "open_gaps": 317,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -260,6 +260,13 @@
     },
     {
       "op": "aten::_philox_normal_",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_randint_",
       "cat": "B",
       "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
@@ -11060,8 +11067,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260821",
-    "git": "cef373b344057d8ed91bcf05d7921b2ca1d0d13c",
-    "date": "2026-08-25 15:02 UTC"
+    "torch": "2.15.0.dev20260826",
+    "git": "68a5d90dd35d45ca457fda21dbae885987fb1e05",
+    "date": "2026-08-26 15:02 UTC"
   }
 }
