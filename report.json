@@ -8,7 +8,7 @@
     "total_ops": 3597,
     "native_mps": 920,
     "core_total": 193,
-    "X_registered_xfail": 20,
+    "X_registered_xfail": 19,
     "open_gaps": 317,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
@@ -2237,13 +2237,6 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bfloat16, int64, int32, bool",
-      "variant_only": false
-    },
-    {
-      "op": "addmm",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
       "variant_only": false
     },
     {
@@ -11067,8 +11060,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260827",
-    "git": "a8cb4daeadf6a4083af941131b11efc893da3ce5",
-    "date": "2026-08-28 15:02 UTC"
+    "torch": "2.15.0.dev20260829",
+    "git": "5b77b6ed10d79b06e978168940350a2a998eb9ce",
+    "date": "2026-08-29 15:02 UTC"
   }
 }
