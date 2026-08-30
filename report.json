@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 109,
     "B_decomp_fail": 30,
-    "C_dtype_partial": 157,
+    "C_dtype_partial": 150,
     "D_backward_gap": 19,
-    "total_ops": 3597,
+    "total_ops": 3598,
     "native_mps": 920,
     "core_total": 193,
-    "X_registered_xfail": 19,
-    "open_gaps": 317,
+    "X_registered_xfail": 18,
+    "open_gaps": 310,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -1498,13 +1498,6 @@
       "variant_only": false
     },
     {
-      "op": "linalg.det",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
       "op": "linalg.inv",
       "cat": "C",
       "subsystem": "dense",
@@ -1513,27 +1506,6 @@
     },
     {
       "op": "linalg.inv_ex",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.lu",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.lu_factor",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.lu_factor_ex",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -1555,13 +1527,6 @@
     },
     {
       "op": "linalg.qr",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.slogdet",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -1607,20 +1572,6 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
-      "variant_only": false
-    },
-    {
-      "op": "logdet",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "lu",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -2262,13 +2213,6 @@
     },
     {
       "op": "div",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "lu_unpack",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -4398,18 +4342,18 @@
     },
     "lu_unpack": {
       "passed": [
-        "torch.float32"
+        "torch.float32",
+        "torch.complex64"
       ],
       "notimpl": [],
       "missing": []
     },
     "lu": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "lu_solve": {
@@ -8436,11 +8380,10 @@
     },
     "logdet": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "log_softmax": {
@@ -9426,11 +9369,10 @@
     },
     "linalg.det": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.diagonal": {
@@ -9638,11 +9580,10 @@
     },
     "linalg.slogdet": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.vander": {
@@ -9667,29 +9608,26 @@
     },
     "linalg.lu_factor": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.lu_factor_ex": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.lu": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.lu_solve": {
@@ -11060,8 +10998,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260829",
-    "git": "5b77b6ed10d79b06e978168940350a2a998eb9ce",
-    "date": "2026-08-29 15:02 UTC"
+    "torch": "2.15.0.dev20260830",
+    "git": "6820641738a8077fbea9ab7c072a577bea21c5f6",
+    "date": "2026-08-30 15:02 UTC"
   }
 }
