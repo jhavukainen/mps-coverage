@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 109,
-    "B_decomp_fail": 30,
+    "B_missing_op": 108,
+    "B_decomp_fail": 29,
     "C_dtype_partial": 150,
     "D_backward_gap": 19,
     "total_ops": 3598,
-    "native_mps": 920,
+    "native_mps": 922,
     "core_total": 193,
-    "X_registered_xfail": 18,
-    "open_gaps": 310,
+    "X_registered_xfail": 16,
+    "open_gaps": 308,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 4,
@@ -749,13 +749,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::special_laguerre_polynomial_l.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::special_legendre_polynomial_p.out",
       "cat": "B",
       "subsystem": "dense",
@@ -1089,13 +1082,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::special_airy_ai.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "special.laguerre_polynomial_l",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::special_laguerre_polynomial_l.out (no MPS registration)",
       "variant_only": false
     },
     {
@@ -2269,20 +2255,6 @@
     },
     {
       "op": "logit",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "std",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "var",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -10093,19 +10065,16 @@
       "missing": []
     },
     "special.laguerre_polynomial_l": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
-        "torch.complex64"
+        "torch.bool"
       ],
-      "missing": [
-        "aten::special_laguerre_polynomial_l.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "special.legendre_polynomial_p": {
       "passed": [],
@@ -10998,8 +10967,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260830",
-    "git": "6820641738a8077fbea9ab7c072a577bea21c5f6",
-    "date": "2026-08-30 15:02 UTC"
+    "torch": "2.15.0.dev20260831",
+    "git": "cbf102a9aec0f6f83466e0584e66d9a96ab613f6",
+    "date": "2026-08-31 15:02 UTC"
   }
 }
