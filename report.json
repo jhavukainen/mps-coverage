@@ -3,16 +3,16 @@
     "A_core_gap": 2,
     "B_missing_op": 108,
     "B_decomp_fail": 29,
-    "C_dtype_partial": 150,
+    "C_dtype_partial": 146,
     "D_backward_gap": 19,
     "total_ops": 3598,
     "native_mps": 922,
     "core_total": 193,
     "X_registered_xfail": 16,
-    "open_gaps": 308,
+    "open_gaps": 304,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
-    "xfail_dtype_partial": 4,
+    "xfail_dtype_partial": 3,
     "xfail_untested_followup": 6,
     "backward_unclassified": 0,
     "opinfo_forward_tested": 623,
@@ -1176,6 +1176,13 @@
       "variant_only": false
     },
     {
+      "op": "bernoulli",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
       "op": "bitwise_left_shift",
       "cat": "C",
       "subsystem": "dense",
@@ -1498,13 +1505,6 @@
       "variant_only": false
     },
     {
-      "op": "linalg.lu_solve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
       "op": "linalg.matrix_power",
       "cat": "C",
       "subsystem": "dense",
@@ -1513,20 +1513,6 @@
     },
     {
       "op": "linalg.qr",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.solve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.solve_ex",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -1547,24 +1533,10 @@
       "variant_only": false
     },
     {
-      "op": "linalg.tensorsolve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
       "op": "logaddexp2",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
-      "variant_only": false
-    },
-    {
-      "op": "lu_solve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -2779,10 +2751,6 @@
       "kind": "sample_unsupported"
     },
     {
-      "op": "bernoulli",
-      "kind": "xfail_dtype:int16,int32,int64,int8,uint8"
-    },
-    {
       "op": "conj_physical",
       "kind": "xfail_dtype:complex64"
     },
@@ -2823,7 +2791,7 @@
   "detail_bwd_errors": {
     "nn.functional.adaptive_avg_pool1d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.adaptive_avg_pool2d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
-    "nn.functional.pad": "RuntimeError: start == 0 || start < input_size INTERNAL ASSERT FAILED at \"/Users/runner/work/pytorch/pytorch/aten/src/ATen/native/mps/operations/Pad.mm\":299, pl",
+    "nn.functional.pad": "RuntimeError: start == 0 || start < input_size INTERNAL ASSERT FAILED at \"/Users/runner/work/pytorch/pytorch/aten/src/ATen/native/mps/operations/Pad.mm\":312, pl",
     "nn.functional.interpolate": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor."
   },
@@ -4330,11 +4298,10 @@
     },
     "lu_solve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "masked_fill": {
@@ -7562,10 +7529,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
+        "torch.bool"
+      ],
+      "notimpl": [
         "torch.complex64"
       ],
-      "notimpl": [],
       "missing": []
     },
     "scatter_add": {
@@ -9604,11 +9572,10 @@
     },
     "linalg.lu_solve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.inv": {
@@ -9631,20 +9598,18 @@
     },
     "linalg.solve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.solve_ex": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.solve_triangular": {
@@ -9701,11 +9666,10 @@
     },
     "linalg.tensorsolve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "signal.windows.hamming": {
@@ -10967,8 +10931,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260831",
-    "git": "cbf102a9aec0f6f83466e0584e66d9a96ab613f6",
-    "date": "2026-08-31 15:02 UTC"
+    "torch": "2.15.0.dev20260901",
+    "git": "279f79e09c3f3ef458061013bda2d2f483c02cae",
+    "date": "2026-09-01 15:02 UTC"
   }
 }
