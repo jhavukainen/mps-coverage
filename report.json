@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 108,
-    "B_decomp_fail": 29,
+    "B_missing_op": 107,
+    "B_decomp_fail": 28,
     "C_dtype_partial": 146,
     "D_backward_gap": 19,
     "total_ops": 3598,
-    "native_mps": 922,
+    "native_mps": 923,
     "core_total": 193,
     "X_registered_xfail": 16,
-    "open_gaps": 304,
+    "open_gaps": 302,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 3,
@@ -421,13 +421,6 @@
     },
     {
       "op": "aten::fractional_max_pool3d.output",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::frexp.Tensor_out",
       "cat": "B",
       "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
@@ -928,13 +921,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::segment_reduce (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "frexp",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::frexp.Tensor_out (no MPS registration)",
       "variant_only": false
     },
     {
@@ -4032,19 +4018,13 @@
       "missing": []
     },
     "frexp": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
-        "torch.complex64"
+        "torch.bfloat16"
       ],
-      "missing": [
-        "aten::frexp.Tensor_out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "log1p": {
       "passed": [
@@ -10518,7 +10498,7 @@
     "sparse.sampled_addmm": "fwd_gap",
     "sparse.mm": "fwd_gap",
     "i0": "ok",
-    "frexp": "fwd_gap",
+    "frexp": "ok",
     "log1p": "ok",
     "imag": "ok",
     "gradient": "ok",
@@ -10931,8 +10911,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260901",
-    "git": "279f79e09c3f3ef458061013bda2d2f483c02cae",
-    "date": "2026-09-01 15:02 UTC"
+    "torch": "2.15.0.dev20260902",
+    "git": "3c73a854d2797ba5d8057db91d52ff836a331790",
+    "date": "2026-09-02 15:02 UTC"
   }
 }
