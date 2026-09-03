@@ -2777,7 +2777,7 @@
   "detail_bwd_errors": {
     "nn.functional.adaptive_avg_pool1d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.adaptive_avg_pool2d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
-    "nn.functional.pad": "RuntimeError: start == 0 || start < input_size INTERNAL ASSERT FAILED at \"/Users/runner/work/pytorch/pytorch/aten/src/ATen/native/mps/operations/Pad.mm\":312, pl",
+    "nn.functional.pad": "RuntimeError: start == 0 || start < input_size INTERNAL ASSERT FAILED at \"/Users/runner/work/pytorch/pytorch/aten/src/ATen/native/mps/operations/Pad.mm\":303, pl",
     "nn.functional.interpolate": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor."
   },
@@ -10911,8 +10911,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260902",
-    "git": "3c73a854d2797ba5d8057db91d52ff836a331790",
-    "date": "2026-09-02 15:02 UTC"
+    "torch": "2.15.0.dev20260903",
+    "git": "7c31c89775bce36897933c4769f8341ce960d5e4",
+    "date": "2026-09-03 15:02 UTC"
   }
 }
