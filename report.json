@@ -5,14 +5,14 @@
     "B_decomp_fail": 28,
     "C_dtype_partial": 146,
     "D_backward_gap": 19,
-    "total_ops": 3598,
+    "total_ops": 3597,
     "native_mps": 923,
     "core_total": 193,
-    "X_registered_xfail": 16,
+    "X_registered_xfail": 15,
     "open_gaps": 302,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
-    "xfail_dtype_partial": 3,
+    "xfail_dtype_partial": 2,
     "xfail_untested_followup": 6,
     "backward_unclassified": 0,
     "opinfo_forward_tested": 623,
@@ -1557,7 +1557,7 @@
       "op": "masked.log_softmax",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64, bool, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1774,7 +1774,7 @@
       "op": "nn.functional.cross_entropy",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64, bool, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -2199,13 +2199,6 @@
     },
     {
       "op": "_upsample_bilinear2d_aa",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "log_softmax",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -2735,10 +2728,6 @@
     {
       "op": "nn.functional.one_hot",
       "kind": "sample_unsupported"
-    },
-    {
-      "op": "conj_physical",
-      "kind": "xfail_dtype:complex64"
     },
     {
       "op": "lerp",
@@ -4631,11 +4620,11 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int32"
+        "torch.bfloat16"
       ],
       "notimpl": [
         "torch.int64",
+        "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
@@ -10354,11 +10343,11 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int32"
+        "torch.bfloat16"
       ],
       "notimpl": [
         "torch.int64",
+        "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
@@ -10911,8 +10900,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260903",
-    "git": "7c31c89775bce36897933c4769f8341ce960d5e4",
-    "date": "2026-09-03 15:02 UTC"
+    "torch": "2.15.0.dev20260904",
+    "git": "3780801c1d295481c4ddeb2d43049cd00f4c5697",
+    "date": "2026-09-04 15:02 UTC"
   }
 }
