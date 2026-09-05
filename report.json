@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 107,
     "B_decomp_fail": 28,
-    "C_dtype_partial": 146,
+    "C_dtype_partial": 161,
     "D_backward_gap": 19,
     "total_ops": 3597,
-    "native_mps": 923,
+    "native_mps": 924,
     "core_total": 193,
     "X_registered_xfail": 15,
-    "open_gaps": 302,
+    "open_gaps": 317,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 2,
@@ -1256,7 +1256,7 @@
       "op": "dist",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1470,6 +1470,13 @@
       "variant_only": false
     },
     {
+      "op": "linalg.cond",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "linalg.cross",
       "cat": "C",
       "subsystem": "dense",
@@ -1491,10 +1498,31 @@
       "variant_only": false
     },
     {
+      "op": "linalg.matrix_norm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "linalg.matrix_power",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.norm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.polar",
+      "cat": "C",
+      "subsystem": "linalg-cpu-bound",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1512,10 +1540,45 @@
       "variant_only": false
     },
     {
+      "op": "linalg.svdvals",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "linalg.tensorinv",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.tensorsolve",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.vander",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float16, bfloat16, bool",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.vecdot",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.vector_norm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1575,6 +1638,20 @@
       "variant_only": false
     },
     {
+      "op": "masked.norm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
+      "op": "masked.normalize",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "masked.softmax",
       "cat": "C",
       "subsystem": "dense",
@@ -1600,6 +1677,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "matrix_exp",
+      "cat": "C",
+      "subsystem": "linalg-cpu-bound",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1792,6 +1876,13 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.embedding",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.grid_sample",
       "cat": "C",
       "subsystem": "dense",
@@ -1883,6 +1974,13 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.normalize",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.pairwise_distance",
       "cat": "C",
       "subsystem": "dense",
@@ -1967,6 +2065,13 @@
       "variant_only": false
     },
     {
+      "op": "norm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "pca_lowrank",
       "cat": "C",
       "subsystem": "dense",
@@ -2012,7 +2117,7 @@
       "op": "renorm",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -4319,7 +4424,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "matmul": {
@@ -4646,7 +4755,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "aminmax": {
@@ -5879,6 +5992,8 @@
         "torch.complex64"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
         "torch.bool"
       ],
       "missing": []
@@ -7761,6 +7876,9 @@
         "torch.bfloat16"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -8367,7 +8485,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "t": {
@@ -8486,12 +8608,13 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.embedding_bag": {
@@ -9336,7 +9459,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.cond": {
@@ -9344,7 +9471,11 @@
         "torch.float32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.eig": {
@@ -9457,7 +9588,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.matrix_norm": {
@@ -9467,7 +9602,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.qr": {
@@ -9484,7 +9623,11 @@
         "torch.float32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.slogdet": {
@@ -9502,7 +9645,11 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float16",
+        "torch.bfloat16",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.vector_norm": {
@@ -9512,7 +9659,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.lu_factor": {
@@ -9621,7 +9772,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.tensorinv": {
@@ -9638,7 +9793,11 @@
         "torch.float32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "signal.windows.hamming": {
@@ -10297,7 +10456,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "masked.var": {
@@ -10371,7 +10534,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "masked.logaddexp": {
@@ -10900,8 +11067,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260904",
-    "git": "3780801c1d295481c4ddeb2d43049cd00f4c5697",
-    "date": "2026-09-04 15:02 UTC"
+    "torch": "2.15.0.dev20260905",
+    "git": "11898ed928b65c3c4dc8777b5bc2a9e3e48e0393",
+    "date": "2026-09-05 15:02 UTC"
   }
 }
