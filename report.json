@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 107,
     "B_decomp_fail": 28,
-    "C_dtype_partial": 161,
+    "C_dtype_partial": 158,
     "D_backward_gap": 19,
     "total_ops": 3597,
     "native_mps": 924,
     "core_total": 193,
     "X_registered_xfail": 15,
-    "open_gaps": 317,
+    "open_gaps": 314,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 2,
@@ -1197,13 +1197,6 @@
       "variant_only": false
     },
     {
-      "op": "cholesky_solve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
       "op": "clamp",
       "cat": "C",
       "subsystem": "dense",
@@ -1527,13 +1520,6 @@
     },
     {
       "op": "linalg.qr",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.solve_triangular",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
@@ -2195,13 +2181,6 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
-      "variant_only": false
-    },
-    {
-      "op": "triangular_solve",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -3431,11 +3410,10 @@
     },
     "cholesky_solve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "chunk": {
@@ -6521,11 +6499,10 @@
     },
     "triangular_solve": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "trunc": {
@@ -9734,11 +9711,10 @@
     },
     "linalg.solve_triangular": {
       "passed": [
-        "torch.float32"
-      ],
-      "notimpl": [
+        "torch.float32",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "linalg.matrix_rank": {
@@ -11067,8 +11043,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260907",
-    "git": "f2ac3133587499ab2dfe33d5f4009bf89accebb0",
-    "date": "2026-09-07 15:02 UTC"
+    "torch": "2.15.0.dev20260908",
+    "git": "3d2b4c7639df58a777529a4699efa74b00619d90",
+    "date": "2026-09-08 15:02 UTC"
   }
 }
