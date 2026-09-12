@@ -3,13 +3,13 @@
     "A_core_gap": 2,
     "B_missing_op": 107,
     "B_decomp_fail": 28,
-    "C_dtype_partial": 158,
+    "C_dtype_partial": 160,
     "D_backward_gap": 19,
     "total_ops": 3601,
-    "native_mps": 924,
+    "native_mps": 925,
     "core_total": 193,
     "X_registered_xfail": 15,
-    "open_gaps": 314,
+    "open_gaps": 316,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 2,
@@ -1641,14 +1641,14 @@
       "op": "masked.softmax",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
       "op": "masked.softmin",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1953,6 +1953,13 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.multi_head_attention_forward",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.nll_loss",
       "cat": "C",
       "subsystem": "dense",
@@ -2167,6 +2174,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "torch.ops.aten._safe_softmax.default",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -5547,7 +5561,9 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.scaled_dot_product_attention": {
@@ -8609,7 +8625,9 @@
         "torch.float16",
         "torch.bfloat16"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.softplus": {
@@ -10474,7 +10492,10 @@
         "torch.bfloat16"
       ],
       "notimpl": [
-        "torch.bool"
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
+        "torch.complex64"
       ],
       "missing": []
     },
@@ -10499,7 +10520,10 @@
         "torch.bfloat16"
       ],
       "notimpl": [
-        "torch.bool"
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
+        "torch.complex64"
       ],
       "missing": []
     },
@@ -11043,8 +11067,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260911",
-    "git": "fb8ff0f16a05cb6ba9604a5e69ad36199277d9e0",
-    "date": "2026-09-11 15:02 UTC"
+    "torch": "2.15.0.dev20260912",
+    "git": "91ddb19350145cc7338628421e7d1166bb1cba26",
+    "date": "2026-09-12 15:02 UTC"
   }
 }
