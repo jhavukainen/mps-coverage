@@ -2,20 +2,20 @@
   "summary": {
     "A_core_gap": 2,
     "B_missing_op": 107,
-    "B_decomp_fail": 28,
+    "B_decomp_fail": 29,
     "C_dtype_partial": 160,
     "D_backward_gap": 19,
     "total_ops": 3601,
     "native_mps": 925,
     "core_total": 193,
     "X_registered_xfail": 15,
-    "open_gaps": 316,
+    "open_gaps": 317,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 2,
     "xfail_untested_followup": 6,
     "backward_unclassified": 0,
-    "opinfo_forward_tested": 623,
+    "opinfo_forward_tested": 624,
     "denylist_stale": [],
     "xfail_map_empty": false
   },
@@ -1089,6 +1089,13 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::special_ndtri.out (no MPS registration)",
+      "variant_only": false
+    },
+    {
+      "op": "torch._scaled_mm_v2",
+      "cat": "B'",
+      "subsystem": "dense",
+      "note": "composite; decomposition needs aten::_scaled_mm_v2.out (no MPS registration)",
       "variant_only": false
     },
     {
@@ -5551,6 +5558,21 @@
         "torch.complex64"
       ],
       "missing": []
+    },
+    "torch._scaled_mm_v2": {
+      "passed": [],
+      "notimpl": [
+        "torch.float32",
+        "torch.float16",
+        "torch.bfloat16",
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
+        "torch.complex64"
+      ],
+      "missing": [
+        "aten::_scaled_mm_v2.out"
+      ]
     },
     "torch.ops.aten._safe_softmax.default": {
       "passed": [
@@ -11067,8 +11089,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260912",
-    "git": "91ddb19350145cc7338628421e7d1166bb1cba26",
-    "date": "2026-09-12 15:02 UTC"
+    "torch": "2.15.0.dev20260913",
+    "git": "13376c2070a764e25f67b2385c31358b325e8a1c",
+    "date": "2026-09-13 15:02 UTC"
   }
 }
