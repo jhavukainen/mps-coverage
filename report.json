@@ -1,18 +1,18 @@
 {
   "summary": {
     "A_core_gap": 2,
-    "B_missing_op": 107,
-    "B_decomp_fail": 29,
-    "C_dtype_partial": 160,
+    "B_missing_op": 102,
+    "B_decomp_fail": 25,
+    "C_dtype_partial": 170,
     "D_backward_gap": 19,
-    "total_ops": 3601,
-    "native_mps": 925,
+    "total_ops": 3608,
+    "native_mps": 935,
     "core_total": 193,
-    "X_registered_xfail": 15,
-    "open_gaps": 317,
+    "X_registered_xfail": 12,
+    "open_gaps": 318,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
-    "xfail_dtype_partial": 2,
+    "xfail_dtype_partial": 1,
     "xfail_untested_followup": 6,
     "backward_unclassified": 0,
     "opinfo_forward_tested": 624,
@@ -294,13 +294,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::_scaled_mm_v2.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::_slow_conv2d_forward.output",
       "cat": "B",
       "subsystem": "dense",
@@ -441,13 +434,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::heaviside.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::linalg_eig",
       "cat": "B",
       "subsystem": "linalg-cpu-bound",
@@ -486,13 +472,6 @@
       "op": "aten::linalg_matrix_sqrth",
       "cat": "B",
       "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::logit_",
-      "cat": "B",
-      "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -735,20 +714,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::special_airy_ai.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::special_legendre_polynomial_p.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::special_log_ndtr.out",
       "cat": "B",
       "subsystem": "dense",
@@ -931,13 +896,6 @@
       "variant_only": false
     },
     {
-      "op": "heaviside",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::heaviside.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "linalg.eig",
       "cat": "B'",
       "subsystem": "linalg-cpu-bound",
@@ -1064,20 +1022,6 @@
       "variant_only": false
     },
     {
-      "op": "special.airy_ai",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::special_airy_ai.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "special.legendre_polynomial_p",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::special_legendre_polynomial_p.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "special.log_ndtr",
       "cat": "B'",
       "subsystem": "dense",
@@ -1089,13 +1033,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::special_ndtri.out (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "torch._scaled_mm_v2",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::_scaled_mm_v2.out (no MPS registration)",
       "variant_only": false
     },
     {
@@ -1141,6 +1078,13 @@
       "variant_only": false
     },
     {
+      "op": "addcmul",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "addr",
       "cat": "C",
       "subsystem": "dense",
@@ -1173,6 +1117,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "bincount",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: float32, float16, bfloat16",
       "variant_only": false
     },
     {
@@ -1421,6 +1372,13 @@
       "variant_only": false
     },
     {
+      "op": "heaviside",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
       "op": "histc",
       "cat": "C",
       "subsystem": "dense",
@@ -1431,14 +1389,14 @@
       "op": "histogram",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
       "op": "histogramdd",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: bool, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1467,6 +1425,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: float32, float16, bfloat16, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "lerp",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1579,6 +1544,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "logcumsumexp",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -1893,7 +1865,7 @@
       "op": "nn.functional.huber_loss",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1970,7 +1942,7 @@
       "op": "nn.functional.nll_loss",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1985,6 +1957,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.relu",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -2006,6 +1985,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.silu",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
       "variant_only": false
     },
     {
@@ -2033,7 +2019,7 @@
       "op": "nn.functional.softplus",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -2048,6 +2034,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.threshold",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -2149,6 +2142,13 @@
       "variant_only": false
     },
     {
+      "op": "std_mean",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "stft",
       "cat": "C",
       "subsystem": "dense",
@@ -2233,17 +2233,17 @@
       "variant_only": false
     },
     {
+      "op": "var_mean",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool",
+      "variant_only": false
+    },
+    {
       "op": "view_as_complex",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bfloat16, int64, int32, bool",
-      "variant_only": false
-    },
-    {
-      "op": "addcmul",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
       "variant_only": false
     },
     {
@@ -2289,13 +2289,6 @@
       "variant_only": false
     },
     {
-      "op": "nn.functional.pad",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd for complex64, float32 (correctness/precision)",
-      "variant_only": false
-    },
-    {
       "op": "nn.functional.unfold",
       "cat": "X",
       "subsystem": "dense",
@@ -2304,13 +2297,6 @@
     },
     {
       "op": "_upsample_bilinear2d_aa",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "logit",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -2835,10 +2821,6 @@
       "kind": "sample_unsupported"
     },
     {
-      "op": "lerp",
-      "kind": "xfail_dtype:bool,int16,int32,int64,int8,uint8"
-    },
-    {
       "op": "linspace",
       "kind": "xfail_dtype:bool"
     },
@@ -2871,7 +2853,6 @@
   "detail_bwd_errors": {
     "nn.functional.adaptive_avg_pool1d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.adaptive_avg_pool2d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
-    "nn.functional.pad": "RuntimeError: start == 0 || start < input_size INTERNAL ASSERT FAILED at \"/Users/runner/work/pytorch/pytorch/aten/src/ATen/native/mps/operations/Pad.mm\":177, pl",
     "nn.functional.interpolate": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor."
   },
@@ -3186,10 +3167,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "addcdiv": {
@@ -3412,8 +3394,7 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int32"
       ],
       "notimpl": [
         "torch.complex64"
@@ -4039,8 +4020,7 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int32"
       ],
       "notimpl": [
         "torch.complex64"
@@ -4490,7 +4470,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "std_mean": {
@@ -4500,7 +4484,11 @@
         "torch.bfloat16",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "meshgrid": {
@@ -4633,19 +4621,18 @@
       "missing": []
     },
     "heaviside": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
+        "torch.bool"
+      ],
+      "notimpl": [
         "torch.complex64"
       ],
-      "missing": [
-        "aten::heaviside.out"
-      ]
+      "missing": []
     },
     "lcm": {
       "passed": [
@@ -5011,10 +4998,12 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int32"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool",
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.conv_transpose1d": {
@@ -5560,8 +5549,7 @@
       "missing": []
     },
     "torch._scaled_mm_v2": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
@@ -5570,9 +5558,8 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::_scaled_mm_v2.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "torch.ops.aten._safe_softmax.default": {
       "passed": [
@@ -5651,12 +5638,13 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.hardsigmoid": {
@@ -5731,10 +5719,12 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int32"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool",
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.triplet_margin_loss": {
@@ -6549,8 +6539,7 @@
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int32"
       ],
       "notimpl": [
         "torch.complex64"
@@ -6653,12 +6642,13 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "angle": {
@@ -7700,11 +7690,11 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int64",
-        "torch.int32"
+        "torch.bfloat16"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
         "torch.bool"
       ],
       "missing": []
@@ -7713,11 +7703,11 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int64",
-        "torch.int32"
+        "torch.bfloat16"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
@@ -7742,7 +7732,11 @@
         "torch.int64",
         "torch.int32"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.float32",
+        "torch.float16",
+        "torch.bfloat16"
+      ],
       "missing": []
     },
     "bucketize": {
@@ -8309,12 +8303,13 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool"
+      ],
       "missing": []
     },
     "sigmoid": {
@@ -8448,8 +8443,7 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
-        "torch.complex64"
+        "torch.bool"
       ],
       "notimpl": [],
       "missing": []
@@ -8656,13 +8650,13 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
+        "torch.int64",
         "torch.int32",
         "torch.bool",
         "torch.complex64"
-      ],
-      "notimpl": [
-        "torch.int64"
       ],
       "missing": []
     },
@@ -8936,12 +8930,12 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.bfloat16"
       ],
       "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -8968,12 +8962,12 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
-        "torch.int32",
-        "torch.bool"
+        "torch.bfloat16"
       ],
       "notimpl": [
         "torch.int64",
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -10034,8 +10028,7 @@
       "missing": []
     },
     "special.airy_ai": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
@@ -10044,9 +10037,8 @@
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::special_airy_ai.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "special.bessel_j0": {
       "passed": [
@@ -10185,19 +10177,16 @@
       "missing": []
     },
     "special.legendre_polynomial_p": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
-        "torch.complex64"
+        "torch.bool"
       ],
-      "missing": [
-        "aten::special_legendre_polynomial_p.out"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "special.modified_bessel_i0": {
       "passed": [
@@ -11089,8 +11078,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.15.0.dev20260914",
-    "git": "7d5f0216450b8253e62d88284d49de725d88bd42",
-    "date": "2026-09-14 15:02 UTC"
+    "torch": "2.16.0.dev20261027",
+    "git": "087ceb5bbaf110c670d587fbfcc37dfd8d9400b5",
+    "date": "2026-10-27 15:04 UTC"
   }
 }
