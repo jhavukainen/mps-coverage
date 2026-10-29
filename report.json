@@ -2,8 +2,8 @@
   "summary": {
     "A_core_gap": 2,
     "B_missing_op": 102,
-    "B_decomp_fail": 25,
-    "C_dtype_partial": 170,
+    "B_decomp_fail": 24,
+    "C_dtype_partial": 171,
     "D_backward_gap": 19,
     "total_ops": 3608,
     "native_mps": 935,
@@ -938,13 +938,6 @@
       "variant_only": false
     },
     {
-      "op": "nn.functional.adaptive_avg_pool1d",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs a missing MPS primitive (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "nn.functional.adaptive_avg_pool3d",
       "cat": "B'",
       "subsystem": "dense",
@@ -1715,10 +1708,17 @@
       "variant_only": false
     },
     {
+      "op": "nn.functional.adaptive_avg_pool1d",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
       "op": "nn.functional.adaptive_avg_pool2d",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: float32, float16, bfloat16, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1879,7 +1879,7 @@
       "op": "nn.functional.interpolate",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: float32, float16, bfloat16, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -2785,18 +2785,6 @@
       "kind": "not_a_real_op"
     },
     {
-      "op": "nn.functional.adaptive_avg_pool1d",
-      "kind": "sample_unsupported"
-    },
-    {
-      "op": "nn.functional.adaptive_avg_pool2d",
-      "kind": "sample_unsupported"
-    },
-    {
-      "op": "nn.functional.interpolate",
-      "kind": "sample_unsupported"
-    },
-    {
       "op": "to",
       "kind": "float64_unsupported"
     },
@@ -2851,9 +2839,6 @@
   ],
   "backward_unclassified": [],
   "detail_bwd_errors": {
-    "nn.functional.adaptive_avg_pool1d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
-    "nn.functional.adaptive_avg_pool2d": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
-    "nn.functional.interpolate": "RuntimeError: Adaptive pool MPS: input sizes must be divisible by output sizes. Non-divisible input sizes are not implemented on MPS device yet. For now, you ca",
     "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor."
   },
   "detail_fwd": {
@@ -4871,11 +4856,12 @@
       "missing": []
     },
     "nn.functional.adaptive_avg_pool1d": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
         "torch.int64",
         "torch.int32",
         "torch.bool",
@@ -4885,14 +4871,14 @@
     },
     "nn.functional.adaptive_avg_pool2d": {
       "passed": [
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
-      ],
-      "notimpl": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5191,14 +5177,14 @@
     },
     "nn.functional.interpolate": {
       "passed": [
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
-      ],
-      "notimpl": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -10711,8 +10697,8 @@
     "_native_batch_norm_legit": "ok",
     "_batch_norm_with_update": "ok",
     "nn.functional.cosine_similarity": "ok",
-    "nn.functional.adaptive_avg_pool1d": "sample_unsupported",
-    "nn.functional.adaptive_avg_pool2d": "sample_unsupported",
+    "nn.functional.adaptive_avg_pool1d": "ok",
+    "nn.functional.adaptive_avg_pool2d": "ok",
     "nn.functional.adaptive_avg_pool3d": "fwd_gap",
     "nn.functional.adaptive_max_pool1d": "ok",
     "nn.functional.adaptive_max_pool2d": "ok",
@@ -10736,7 +10722,7 @@
     "nn.functional.pad": "ok",
     "nn.functional.hardswish": "ok",
     "nn.functional.unfold": "ok",
-    "nn.functional.interpolate": "sample_unsupported",
+    "nn.functional.interpolate": "ok",
     "nn.functional.upsample_bilinear": "ok",
     "_upsample_bilinear2d_aa": "ok",
     "nn.functional.soft_margin_loss": "ok",
@@ -11078,8 +11064,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261028",
-    "git": "a183c26ba18a214a0bf1d340ebda15a423be7a67",
-    "date": "2026-10-28 15:02 UTC"
+    "torch": "2.16.0.dev20261029",
+    "git": "45f9fe1c9c9997a94cd6e2afd5b93920427b566b",
+    "date": "2026-10-29 15:02 UTC"
   }
 }
