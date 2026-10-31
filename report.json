@@ -1,15 +1,15 @@
 {
   "summary": {
-    "A_core_gap": 2,
-    "B_missing_op": 102,
-    "B_decomp_fail": 24,
-    "C_dtype_partial": 176,
-    "D_backward_gap": 19,
+    "A_core_gap": 1,
+    "B_missing_op": 97,
+    "B_decomp_fail": 21,
+    "C_dtype_partial": 177,
+    "D_backward_gap": 17,
     "total_ops": 3608,
-    "native_mps": 935,
+    "native_mps": 943,
     "core_total": 193,
     "X_registered_xfail": 12,
-    "open_gaps": 323,
+    "open_gaps": 313,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -20,13 +20,6 @@
     "xfail_map_empty": false
   },
   "todo": [
-    {
-      "op": "aten::_adaptive_avg_pool3d",
-      "cat": "A",
-      "subsystem": "dense",
-      "note": "Core ATen op, no MPS registration",
-      "variant_only": false
-    },
     {
       "op": "aten::_pdist_forward",
       "cat": "A",
@@ -164,13 +157,6 @@
       "op": "aten::_jagged_to_padded_dense_forward",
       "cat": "B",
       "subsystem": "nested",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::_linalg_eigvals",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -357,13 +343,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::adaptive_avg_pool3d.out",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::adaptive_max_pool3d.out",
       "cat": "B",
       "subsystem": "dense",
@@ -430,27 +409,6 @@
       "op": "aten::hash_tensor.out",
       "cat": "B",
       "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::linalg_eig",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::linalg_eig.out",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::linalg_eigvals.out",
-      "cat": "B",
-      "subsystem": "linalg-cpu-bound",
       "note": "has a CPU op, no MPS registration",
       "variant_only": false
     },
@@ -749,13 +707,6 @@
       "variant_only": true
     },
     {
-      "op": "aten::_adaptive_avg_pool3d_backward",
-      "cat": "D",
-      "subsystem": "dense",
-      "note": "backward op: has a CPU registration, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::_fake_quantize_learnable_per_channel_affine_backward",
       "cat": "D",
       "subsystem": "quantized",
@@ -806,13 +757,6 @@
     },
     {
       "op": "aten::_upsample_lanczos2d_aa_backward.grad_input",
-      "cat": "D",
-      "subsystem": "dense",
-      "note": "backward op: has a CPU registration, no MPS registration",
-      "variant_only": false
-    },
-    {
-      "op": "aten::adaptive_avg_pool3d_backward.grad_input",
       "cat": "D",
       "subsystem": "dense",
       "note": "backward op: has a CPU registration, no MPS registration",
@@ -896,20 +840,6 @@
       "variant_only": false
     },
     {
-      "op": "linalg.eig",
-      "cat": "B'",
-      "subsystem": "linalg-cpu-bound",
-      "note": "composite; decomposition needs aten::linalg_eig (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "linalg.eigvals",
-      "cat": "B'",
-      "subsystem": "linalg-cpu-bound",
-      "note": "composite; decomposition needs aten::_linalg_eigvals (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "linalg.ldl_factor",
       "cat": "B'",
       "subsystem": "linalg-cpu-bound",
@@ -935,13 +865,6 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::mode (no MPS registration)",
-      "variant_only": false
-    },
-    {
-      "op": "nn.functional.adaptive_avg_pool3d",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::_adaptive_avg_pool3d (no MPS registration)",
       "variant_only": false
     },
     {
@@ -1737,6 +1660,13 @@
     },
     {
       "op": "nn.functional.adaptive_avg_pool2d",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.adaptive_avg_pool3d",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
@@ -4922,19 +4852,18 @@
       "missing": []
     },
     "nn.functional.adaptive_avg_pool3d": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
         "torch.int64",
         "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::_adaptive_avg_pool3d"
-      ]
+      "missing": []
     },
     "nn.functional.adaptive_max_pool1d": {
       "passed": [
@@ -9516,24 +9445,20 @@
       "missing": []
     },
     "linalg.eig": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::linalg_eig"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "linalg.eigvals": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::_linalg_eigvals"
-      ]
+      "notimpl": [],
+      "missing": []
     },
     "linalg.eigh": {
       "passed": [
@@ -10739,7 +10664,7 @@
     "nn.functional.cosine_similarity": "ok",
     "nn.functional.adaptive_avg_pool1d": "ok",
     "nn.functional.adaptive_avg_pool2d": "ok",
-    "nn.functional.adaptive_avg_pool3d": "fwd_gap",
+    "nn.functional.adaptive_avg_pool3d": "ok",
     "nn.functional.adaptive_max_pool1d": "ok",
     "nn.functional.adaptive_max_pool2d": "ok",
     "nn.functional.adaptive_max_pool3d": "fwd_gap",
@@ -11038,8 +10963,8 @@
     "linalg.cholesky_ex": "ok",
     "linalg.vecdot": "ok",
     "linalg.cond": "ok",
-    "linalg.eig": "fwd_gap",
-    "linalg.eigvals": "fwd_gap",
+    "linalg.eig": "ok",
+    "linalg.eigvals": "ok",
     "linalg.eigh": "ok",
     "linalg.eigvalsh": "ok",
     "linalg.householder_product": "ok",
@@ -11104,8 +11029,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261030",
-    "git": "bf270c3251d8e84723cedbf5b60eaa60cacaa3f2",
-    "date": "2026-10-30 15:02 UTC"
+    "torch": "2.16.0.dev20261031",
+    "git": "5efd7dc505c67329628bafd85ecff25cff69f35e",
+    "date": "2026-10-31 15:02 UTC"
   }
 }
