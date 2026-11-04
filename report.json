@@ -3,13 +3,13 @@
     "A_core_gap": 1,
     "B_missing_op": 97,
     "B_decomp_fail": 21,
-    "C_dtype_partial": 177,
+    "C_dtype_partial": 176,
     "D_backward_gap": 17,
     "total_ops": 3608,
     "native_mps": 943,
     "core_total": 193,
     "X_registered_xfail": 12,
-    "open_gaps": 313,
+    "open_gaps": 312,
     "device_specific_excluded": 100,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -1005,13 +1005,6 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
-      "variant_only": false
-    },
-    {
-      "op": "addr",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -3102,14 +3095,13 @@
       "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16"
-      ],
-      "notimpl": [
+        "torch.bfloat16",
         "torch.int64",
         "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
+      "notimpl": [],
       "missing": []
     },
     "addcmul": {
@@ -11029,8 +11021,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261102",
-    "git": "45a70b7c0d318efced057e4c1adb33b936c52523",
-    "date": "2026-11-03 16:01 UTC"
+    "torch": "2.16.0.dev20261104",
+    "git": "7f24a19c0967db04f2d5ba44c1e56eca489932ec",
+    "date": "2026-11-04 16:02 UTC"
   }
 }
