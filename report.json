@@ -1,16 +1,16 @@
 {
   "summary": {
     "A_core_gap": 1,
-    "B_missing_op": 97,
+    "B_missing_op": 98,
     "B_decomp_fail": 21,
     "C_dtype_partial": 176,
     "D_backward_gap": 17,
-    "total_ops": 3608,
+    "total_ops": 3626,
     "native_mps": 943,
     "core_total": 193,
     "X_registered_xfail": 12,
-    "open_gaps": 312,
-    "device_specific_excluded": 100,
+    "open_gaps": 313,
+    "device_specific_excluded": 110,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
     "xfail_untested_followup": 6,
@@ -260,6 +260,13 @@
     },
     {
       "op": "aten::_philox_uniform_",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_philox_uniform_.Tensor",
       "cat": "B",
       "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
@@ -2443,11 +2450,51 @@
       "kind": "device_specific"
     },
     {
-      "op": "metal_prepack::conv2d_prepack",
+      "op": "mkldnn::_convolution_pointwise",
       "kind": "device_specific"
     },
     {
-      "op": "metal_prepack::linear_prepack",
+      "op": "mkldnn::_convolution_pointwise.binary",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_convolution_pointwise_.binary",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_convolution_transpose_pointwise",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_linear_pointwise",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_linear_pointwise.binary",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_reorder_convolution_transpose_weight",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_reorder_convolution_weight",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_reorder_linear_weight",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn::_reorder_mkldnn_rnn_layer_weight",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn_prepacked::conv2d_prepack",
+      "kind": "device_specific"
+    },
+    {
+      "op": "mkldnn_prepacked::conv2d_run",
       "kind": "device_specific"
     },
     {
@@ -11021,8 +11068,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261111",
-    "git": "09b29f3a97e07864066a2d574ffe03a852de9463",
-    "date": "2026-11-11 16:01 UTC"
+    "torch": "2.16.0.dev20261112",
+    "git": "82b208e222b5c2f97fbd2e98910d3dd5ac001bf9",
+    "date": "2026-11-12 16:01 UTC"
   }
 }
