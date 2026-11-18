@@ -3,13 +3,13 @@
     "A_core_gap": 1,
     "B_missing_op": 98,
     "B_decomp_fail": 21,
-    "C_dtype_partial": 176,
+    "C_dtype_partial": 178,
     "D_backward_gap": 17,
     "total_ops": 3626,
     "native_mps": 943,
     "core_total": 193,
     "X_registered_xfail": 12,
-    "open_gaps": 313,
+    "open_gaps": 315,
     "device_specific_excluded": 110,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -2013,6 +2013,20 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.upsample_bilinear",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.upsample_nearest",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: complex64",
       "variant_only": false
     },
     {
@@ -5201,7 +5215,12 @@
         "torch.float16",
         "torch.bfloat16"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
+        "torch.complex64"
+      ],
       "missing": []
     },
     "_upsample_bilinear2d_aa": {
@@ -5234,7 +5253,9 @@
         "torch.int32",
         "torch.bool"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.margin_ranking_loss": {
@@ -11068,8 +11089,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261117",
-    "git": "d4a0a1698bd77cac68294d8679be84a78b226c45",
-    "date": "2026-11-17 16:02 UTC"
+    "torch": "2.16.0.dev20261118",
+    "git": "2f5bd41363b94a3a09c852baa3d1b296c4a71ee2",
+    "date": "2026-11-18 16:01 UTC"
   }
 }
