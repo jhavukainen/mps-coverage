@@ -3,13 +3,13 @@
     "A_core_gap": 1,
     "B_missing_op": 98,
     "B_decomp_fail": 21,
-    "C_dtype_partial": 178,
+    "C_dtype_partial": 179,
     "D_backward_gap": 17,
     "total_ops": 3627,
     "native_mps": 943,
     "core_total": 193,
-    "X_registered_xfail": 12,
-    "open_gaps": 315,
+    "X_registered_xfail": 11,
+    "open_gaps": 316,
     "device_specific_excluded": 110,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -1002,6 +1002,13 @@
     },
     {
       "op": "_native_batch_norm_legit",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "_upsample_bilinear2d_aa",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
@@ -2269,13 +2276,6 @@
     },
     {
       "op": "nn.functional.unfold",
-      "cat": "X",
-      "subsystem": "dense",
-      "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
-      "variant_only": false
-    },
-    {
-      "op": "_upsample_bilinear2d_aa",
       "cat": "X",
       "subsystem": "dense",
       "note": "registered on MPS but OpInfo xfail'd on all dtypes (correctness/precision)",
@@ -5229,7 +5229,12 @@
         "torch.float16",
         "torch.bfloat16"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.int64",
+        "torch.int32",
+        "torch.bool",
+        "torch.complex64"
+      ],
       "missing": []
     },
     "nn.functional.soft_margin_loss": {
@@ -11089,8 +11094,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261119",
-    "git": "daf1a40a5de981f7cab47fed4dd9883b1581cd63",
-    "date": "2026-11-19 16:01 UTC"
+    "torch": "2.16.0.dev20261120",
+    "git": "4d26eb97aeba45759eb3208309bfc8f76e45fbda",
+    "date": "2026-11-20 16:01 UTC"
   }
 }
