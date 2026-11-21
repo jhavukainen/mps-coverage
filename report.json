@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 1,
-    "B_missing_op": 98,
-    "B_decomp_fail": 21,
-    "C_dtype_partial": 179,
-    "D_backward_gap": 17,
+    "B_missing_op": 97,
+    "B_decomp_fail": 20,
+    "C_dtype_partial": 189,
+    "D_backward_gap": 18,
     "total_ops": 3627,
-    "native_mps": 943,
+    "native_mps": 944,
     "core_total": 193,
     "X_registered_xfail": 11,
-    "open_gaps": 316,
+    "open_gaps": 325,
     "device_specific_excluded": 110,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -623,13 +623,6 @@
       "variant_only": false
     },
     {
-      "op": "aten::segment_reduce",
-      "cat": "B",
-      "subsystem": "dense",
-      "note": "has a CPU op, no MPS registration",
-      "variant_only": false
-    },
-    {
       "op": "aten::slow_conv3d_forward",
       "cat": "B",
       "subsystem": "dense",
@@ -833,13 +826,6 @@
       "variant_only": false
     },
     {
-      "op": "_segment_reduce",
-      "cat": "B'",
-      "subsystem": "dense",
-      "note": "composite; decomposition needs aten::segment_reduce (no MPS registration)",
-      "variant_only": false
-    },
-    {
       "op": "hash_tensor",
       "cat": "B'",
       "subsystem": "dense",
@@ -980,6 +966,13 @@
       "variant_only": false
     },
     {
+      "op": "_segment_reduce",
+      "cat": "D",
+      "subsystem": "dense",
+      "note": "forward runs on MPS; backward needs aten::_segment_reduce_backward (no MPS registration)",
+      "variant_only": false
+    },
+    {
       "op": "__rmatmul__",
       "cat": "C",
       "subsystem": "dense",
@@ -1015,7 +1008,28 @@
       "variant_only": false
     },
     {
+      "op": "addbmm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "addcmul",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "addmm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "addmv",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
@@ -1037,6 +1051,13 @@
     },
     {
       "op": "argmin",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "baddbmm",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
@@ -1142,6 +1163,13 @@
     },
     {
       "op": "dot",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "einsum",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: bool",
@@ -1344,6 +1372,13 @@
       "variant_only": false
     },
     {
+      "op": "inner",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "isin",
       "cat": "C",
       "subsystem": "dense",
@@ -1411,6 +1446,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: complex64",
+      "variant_only": false
+    },
+    {
+      "op": "linalg.multi_dot",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -1617,6 +1659,20 @@
       "variant_only": false
     },
     {
+      "op": "mm",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
+      "op": "mv",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
+      "variant_only": false
+    },
+    {
       "op": "mvlgamma",
       "cat": "C",
       "subsystem": "dense",
@@ -1719,6 +1775,13 @@
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.bilinear",
+      "cat": "C",
+      "subsystem": "dense",
+      "note": "fails on dtypes: bool",
       "variant_only": false
     },
     {
@@ -2047,7 +2110,7 @@
       "op": "pca_lowrank",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: int64, int32, complex64",
+      "note": "fails on dtypes: int64, int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -2145,7 +2208,7 @@
       "op": "svd_lowrank",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: bool, complex64",
       "variant_only": false
     },
     {
@@ -2858,7 +2921,8 @@
   ],
   "backward_unclassified": [],
   "detail_bwd_errors": {
-    "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor."
+    "nn.functional.one_hot": "RuntimeError: one_hot is only applicable to index tensor of type LongTensor.",
+    "_segment_reduce": "aten::_segment_reduce_backward"
   },
   "detail_fwd": {
     "abs": {
@@ -3061,7 +3125,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "addmv": {
@@ -3073,7 +3139,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "addbmm": {
@@ -3083,10 +3151,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "baddbmm": {
@@ -3096,10 +3165,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "dot": {
@@ -3149,7 +3219,9 @@
         "torch.int32",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "addr": {
@@ -5480,10 +5552,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "nn.functional.glu": {
@@ -5909,10 +5982,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "mode": {
@@ -6767,10 +6841,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "svd": {
@@ -6786,6 +6861,7 @@
         "torch.float32"
       ],
       "notimpl": [
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -6797,6 +6873,7 @@
       "notimpl": [
         "torch.int64",
         "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -8285,10 +8362,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "tensordot": {
@@ -9130,19 +9208,18 @@
       "missing": []
     },
     "_segment_reduce": {
-      "passed": [],
-      "notimpl": [
+      "passed": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16",
+        "torch.bfloat16"
+      ],
+      "notimpl": [
         "torch.int64",
         "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": [
-        "aten::segment_reduce"
-      ]
+      "missing": []
     },
     "fft.fft": {
       "passed": [
@@ -9602,10 +9679,11 @@
         "torch.bfloat16",
         "torch.int64",
         "torch.int32",
-        "torch.bool",
         "torch.complex64"
       ],
-      "notimpl": [],
+      "notimpl": [
+        "torch.bool"
+      ],
       "missing": []
     },
     "linalg.norm": {
@@ -10999,7 +11077,7 @@
     "nn.functional.kl_div": "ok",
     "diagflat": "ok",
     "scatter_reduce": "ok",
-    "_segment_reduce": "fwd_gap",
+    "_segment_reduce": "backward_gap",
     "fft.fft": "ok",
     "fft.fft2": "ok",
     "fft.fftn": "ok",
@@ -11094,8 +11172,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261120",
-    "git": "4d26eb97aeba45759eb3208309bfc8f76e45fbda",
-    "date": "2026-11-20 16:01 UTC"
+    "torch": "2.16.0.dev20261121",
+    "git": "52cbb3d7a3acc09db2f7bf356a819277058afd63",
+    "date": "2026-11-21 16:01 UTC"
   }
 }
