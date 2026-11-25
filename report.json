@@ -1,15 +1,15 @@
 {
   "summary": {
     "A_core_gap": 1,
-    "B_missing_op": 97,
-    "B_decomp_fail": 20,
-    "C_dtype_partial": 189,
+    "B_missing_op": 98,
+    "B_decomp_fail": 21,
+    "C_dtype_partial": 188,
     "D_backward_gap": 18,
-    "total_ops": 3627,
-    "native_mps": 944,
+    "total_ops": 3630,
+    "native_mps": 946,
     "core_total": 193,
     "X_registered_xfail": 11,
-    "open_gaps": 325,
+    "open_gaps": 326,
     "device_specific_excluded": 110,
     "pruned_not_ops": 13,
     "xfail_dtype_partial": 1,
@@ -337,6 +337,13 @@
     },
     {
       "op": "aten::_transformer_encoder_layer_fwd",
+      "cat": "B",
+      "subsystem": "dense",
+      "note": "has a CPU op, no MPS registration",
+      "variant_only": false
+    },
+    {
+      "op": "aten::_upsample_inter_area2d.out",
       "cat": "B",
       "subsystem": "dense",
       "note": "has a CPU op, no MPS registration",
@@ -886,6 +893,13 @@
       "cat": "B'",
       "subsystem": "dense",
       "note": "composite; decomposition needs aten::fractional_max_pool3d.output (no MPS registration)",
+      "variant_only": false
+    },
+    {
+      "op": "nn.functional.interpolate",
+      "cat": "B'",
+      "subsystem": "dense",
+      "note": "composite; decomposition needs aten::_upsample_inter_area2d.out (no MPS registration)",
       "variant_only": false
     },
     {
@@ -1898,13 +1912,6 @@
     },
     {
       "op": "nn.functional.instance_norm",
-      "cat": "C",
-      "subsystem": "dense",
-      "note": "fails on dtypes: int64, int32, bool, complex64",
-      "variant_only": false
-    },
-    {
-      "op": "nn.functional.interpolate",
       "cat": "C",
       "subsystem": "dense",
       "note": "fails on dtypes: int64, int32, bool, complex64",
@@ -5268,18 +5275,19 @@
       "missing": []
     },
     "nn.functional.interpolate": {
-      "passed": [
+      "passed": [],
+      "notimpl": [
         "torch.float32",
         "torch.float16",
-        "torch.bfloat16"
-      ],
-      "notimpl": [
+        "torch.bfloat16",
         "torch.int64",
         "torch.int32",
         "torch.bool",
         "torch.complex64"
       ],
-      "missing": []
+      "missing": [
+        "aten::_upsample_inter_area2d.out"
+      ]
     },
     "nn.functional.upsample_bilinear": {
       "passed": [
@@ -11172,8 +11180,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261124",
-    "git": "b3e476a9db40817676a83475c2ac79e8418bf08b",
-    "date": "2026-11-24 16:01 UTC"
+    "torch": "2.16.0.dev20261125",
+    "git": "823c872fd535d181d5431fb54c38110b32459776",
+    "date": "2026-11-25 16:01 UTC"
   }
 }
