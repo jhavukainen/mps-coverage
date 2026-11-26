@@ -1767,21 +1767,21 @@
       "op": "nn.functional.avg_pool1d",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int32, bool, complex64",
       "variant_only": false
     },
     {
       "op": "nn.functional.avg_pool2d",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int32, bool, complex64",
       "variant_only": false
     },
     {
       "op": "nn.functional.avg_pool3d",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -1942,7 +1942,7 @@
       "op": "nn.functional.local_response_norm",
       "cat": "C",
       "subsystem": "dense",
-      "note": "fails on dtypes: complex64",
+      "note": "fails on dtypes: int32, bool, complex64",
       "variant_only": false
     },
     {
@@ -5045,11 +5045,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int64"
       ],
       "notimpl": [
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5059,11 +5059,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int64"
       ],
       "notimpl": [
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5219,11 +5219,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int64"
       ],
       "notimpl": [
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -5410,11 +5410,11 @@
         "torch.float32",
         "torch.float16",
         "torch.bfloat16",
-        "torch.int64",
-        "torch.int32",
-        "torch.bool"
+        "torch.int64"
       ],
       "notimpl": [
+        "torch.int32",
+        "torch.bool",
         "torch.complex64"
       ],
       "missing": []
@@ -11180,8 +11180,8 @@
     "masked.logsumexp": "ok"
   },
   "meta": {
-    "torch": "2.16.0.dev20261125",
-    "git": "823c872fd535d181d5431fb54c38110b32459776",
-    "date": "2026-11-25 16:01 UTC"
+    "torch": "2.16.0.dev20261126",
+    "git": "6f3edfae53e12259132f976ccd40410bb9d295b7",
+    "date": "2026-11-26 16:01 UTC"
   }
 }
